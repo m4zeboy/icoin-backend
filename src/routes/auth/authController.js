@@ -9,7 +9,6 @@ export default {
    login
 }
 
-
 async function register(req, res) {
    const { name, password } = req.body;
    const hasedPassword = bcrypt.hashSync(password, 12)
