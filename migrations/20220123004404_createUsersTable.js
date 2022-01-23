@@ -4,7 +4,7 @@
  */
 export function up(knex) {
    return knex.schema.createTable('users', (table) => {
-      table.string('account_id').primary()
+      table.string('id').primary()
       table.string('name').unique()
       table.string('password')
       table.timestamps(true, true)
