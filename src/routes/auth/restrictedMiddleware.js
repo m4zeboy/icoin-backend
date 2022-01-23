@@ -12,5 +12,7 @@ export default function (req, res, next) {
             next()
          }
       })
+   } else {
+      return res.status(401).json({ message: "Token not provided." })
    }
 }  
