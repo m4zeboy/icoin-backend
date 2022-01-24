@@ -34,12 +34,9 @@ async function place(req, res) {
 }
 
 async function verify(req, res) {
-   const { decodedToken } = req;
    const { order_id } = req.params;
 
-
    const finded_order = await OrdersModel.findById(order_id)
-   console.log(finded_order)
 
    if (finded_order) {
       if (finded_order.status === 'available') {
