@@ -30,6 +30,6 @@ async function findCoinsByCurrentOwner(current_owner) {
    }
 }
 
-async function update(changes) {
-   
+async function update(id, changes) {
+   await db("coins").where({ id }).update(changes)
 }
