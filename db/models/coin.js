@@ -4,7 +4,7 @@ import db from '../index.js'
 export default {
    emmit,
    findCoinsByCurrentOwner,
-   updateCurrentOwner,
+   update,
 }
 
 async function emmit(current_owner) {
@@ -28,4 +28,8 @@ async function findCoinsByCurrentOwner(current_owner) {
    } catch (error) {
       return error
    }
+}
+
+async function update(changes) {
+   
 }
