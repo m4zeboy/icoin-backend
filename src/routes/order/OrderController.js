@@ -11,22 +11,25 @@ async function place(req, res) {
    const { decodedToken } = req;
    const { quantity } = req.params;
 
-   console.log(decodedToken)
+   if (quantity <= 0) {
+      return res.status(401).json({ message: "The order must be at least one currency." })
+   } else {
 
-   const preOrder = {
-      order_id: uuid(),
-      quantity,
-      user_id: decodedToken.id,
-      user_name: decodedToken.name,
-      approved: false,
-      status: 'available'
-   }
+      const preOrder = {
+         order_id: uuid(),
+         quantity,
+         user_id: decodedToken.id,
+         user_name: decodedToken.name,
+         approved: false,
+         status: 'available'
+      }
 
-   const createdOrder = await OrdersModel.save(preOrder)
-   try {
-      return res.status(201).json(createdOrder[0])
-   } catch (error) {
-      return res.status(500).json({ message: error.message })
+      const createdOrder = await OrdersModel.save(preOrder)
+      try {
+         return res.status(201).json(createdOrder[0])
+      } catch (error) {
+         return res.status(500).json({ message: error.message })
+      }
    }
 }
 
