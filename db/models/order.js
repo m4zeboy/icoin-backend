@@ -17,7 +17,8 @@ async function save(order) {
 
 async function approve(order_id) {
    const approve = await db("orders").where({ order_id }).update({
-      approved: true
+      approved: true,
+      status: 'used'
    }).returning("approved")
    try {
       return approve
