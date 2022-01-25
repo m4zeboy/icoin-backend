@@ -2,7 +2,8 @@ import { uuid } from 'uuidv4';
 import db from '../index.js';
 
 export default {
-   save
+   save, 
+   index
 }
 
 async function save(transaction) {
@@ -12,4 +13,8 @@ async function save(transaction) {
    } catch (error) {
       return error
    }
+}
+
+async function index(sender_id) {
+   return await db('transactions').where({ sender_id })
 }
