@@ -9,7 +9,7 @@ export default {
     connection: {
       host: '127.0.0.1',
       user: 'postgres',
-      password: 'as78fg8wu',
+      password: '1234',
       database: 'icoindb'
     },
     migrationos: {

@@ -49,7 +49,7 @@ async function login(req, res) {
       } else {
          if (bcrypt.compare(password, userExist.password)) {
             const jwt = generateJWT(userExist)
-            return res.status(200).json({ message: "logged In", token: jwt })
+            return res.status(200).json({ message: "logged In", token: jwt, name: req.decodedToken.name })
          } else {
             return res.status(401).json({ message: "Password is wrong." })
          }
