@@ -1,4 +1,6 @@
 import express from "express";
+import cors from 'cors';
+
 import restrictedMiddleware from './routes/auth/restrictedMiddleware.js'
 import AuthRouter from './routes/auth/index.js'
 import OrderRouter from './routes/order/index.js'
@@ -6,6 +8,7 @@ import WalletRouter from './routes/wallet/index.js'
 
 const server = express();
 server.use(express.json())
+server.use(cors())
 
 server.get('/', (req, res) => {
    res.send('Hello world')
